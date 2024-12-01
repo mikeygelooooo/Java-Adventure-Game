@@ -4,7 +4,7 @@ import main.GamePanel;
 
 import java.util.Random;
 
-public class NPC_OldMan extends Entity{
+public class NPC_OldMan extends Entity {
     public NPC_OldMan(GamePanel gp) {
         super(gp);
 
@@ -12,6 +12,7 @@ public class NPC_OldMan extends Entity{
         speed = 2;
 
         getImage();
+        setDialog();
     }
 
     public void getImage() {
@@ -23,6 +24,13 @@ public class NPC_OldMan extends Entity{
         left2 = setup("/npc/oldman_left_2");
         right1 = setup("/npc/oldman_right_1");
         right2 = setup("/npc/oldman_right_2");
+    }
+
+    public void setDialog() {
+        dialogs[0] = "Greetings, traveler.";
+        dialogs[1] = "Ah, so you've come to our humble village\nin search of hidden treasures?";
+        dialogs[2] = "I was an adventurer once, but the years\nhave turned my daring quests into\nfond memories of days long past.";
+        dialogs[3] = "May fortune smile upon your journey,\nbrave young soul.";
     }
 
     public void setAction() {
@@ -48,5 +56,9 @@ public class NPC_OldMan extends Entity{
 
             actionLockCounter = 0;
         }
+    }
+
+    public void speak() {
+        super.speak();
     }
 }
