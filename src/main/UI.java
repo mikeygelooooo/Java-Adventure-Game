@@ -1,11 +1,13 @@
 package main;
 
 import java.awt.*;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class UI {
     GamePanel gp;
     Graphics2D g2;
-    Font arial_40, arial_80B;
+    Font maruMonica;
 
     public boolean messageOn = false;
     public String message = "";
@@ -15,11 +17,23 @@ public class UI {
 
     public String currentDialog = "";
 
+    public int commandNum = 0;
+
     public UI(GamePanel gp) {
         this.gp = gp;
 
-        arial_40 = new Font("Arial", Font.PLAIN, 40);
-        arial_80B = new Font("Arial", Font.BOLD, 80);
+
+        try {
+            InputStream is = getClass().getResourceAsStream("/font/MaruMonica.ttf");
+            maruMonica = Font.createFont(Font.TRUETYPE_FONT, is);
+
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
     }
 
     public void showMessage(String text) {
@@ -30,8 +44,13 @@ public class UI {
     public void draw(Graphics g2) {
         this.g2 = (Graphics2D) g2;
 
-        g2.setFont(arial_40);
+        g2.setFont(maruMonica);
         g2.setColor(Color.WHITE);
+
+        // Title State
+        if (gp.gameState == gp.titleState) {
+            drawTitleScreen();
+        }
 
         // Play State
         if (gp.gameState == gp.playState) {
@@ -49,8 +68,66 @@ public class UI {
         }
     }
 
+    public void drawTitleScreen() {
+        // Background
+        g2.setColor(Color.BLACK);
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+
+        // Title Text
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96f));
+
+        String text = "Pixel Odyssey";
+
+        int x = getXforCenteredText(text);
+        int y = gp.tileSize * 3;
+
+        // Text Shadow
+        g2.setColor(Color.GRAY);
+        g2.drawString(text, x + 5, y + 5);
+
+        // Text
+        g2.setColor(Color.WHITE);
+        g2.drawString(text, x, y);
+
+        // Character Image
+        x = (gp.screenWidth / 2) - (gp.tileSize * 2) / 2;
+        y += gp.tileSize * 2;
+
+        g2.drawImage(gp.player.down1, x, y, gp.tileSize * 2, gp.tileSize * 2, null);
+
+        // Menu
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
+
+        text = "New Game";
+        x = getXforCenteredText(text);
+        y += (int) (gp.tileSize * 3.5);
+        g2.drawString(text, x, y);
+
+        if (commandNum == 0) {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
+
+        text = "Load Game";
+        x = getXforCenteredText(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
+        if (commandNum == 1) {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
+
+        text = "Quit";
+        x = getXforCenteredText(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
+        if (commandNum == 2) {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
+    }
+
     public void drawPauseScreen() {
-        g2.setFont(arial_80B);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 80f));
 
         String text = "Paused";
 
@@ -70,7 +147,7 @@ public class UI {
         drawSubWindow(x, y, width, height);
 
         // Dialog Text
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 28f));
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 32f));
 
         x += gp.tileSize / 2;
         y += gp.tileSize;
