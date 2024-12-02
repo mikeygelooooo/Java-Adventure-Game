@@ -22,12 +22,12 @@ public class Player extends Entity {
         screenY = (gp.screenHeight / 2) - (gp.tileSize / 2);
 
         solidArea = new Rectangle();
-        solidArea.x = 1;
-        solidArea.y = 1;
+        solidArea.x = 8;
+        solidArea.y = 16;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width = 46;
-        solidArea.height = 46;
+        solidArea.width = 32;
+        solidArea.height = 32;
 
         setDefaultValues();
         getPlayerImage();
@@ -79,6 +79,11 @@ public class Player extends Entity {
             // Check NPC Collision
             int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
             interactNPC(npcIndex);
+
+            // Check Event
+            gp.eHandler.checkEvent();
+
+            gp.keyH.enterPressed = false;
 
             if (!collisionOn) {
                 switch (direction) {
@@ -133,8 +138,6 @@ public class Player extends Entity {
 
                 gp.npc[i].speak();
             }
-
-            gp.keyH.enterPressed = false;
         }
     }
 
