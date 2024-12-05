@@ -97,6 +97,9 @@ public class EventHandler {
             gp.playSE(2);
             gp.ui.currentDialog = "You drank from the Lake of Vitality!\nYou have recovered your health.";
             gp.player.life = gp.player.maxLife;
+
+            // Monsters Respawn After Healing
+            gp.aSetter.setMonster();
         }
     }
 }
