@@ -2,6 +2,7 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
+import object.OBJ_Fireball;
 import object.OBJ_Key;
 import object.OBJ_Shield_Wood;
 import object.OBJ_Sword_Normal;
@@ -62,6 +63,7 @@ public class Player extends Entity {
         coin = 0;
         currentWeapon = new OBJ_Sword_Normal(gp);
         currentShield = new OBJ_Shield_Wood(gp);
+        projectile = new OBJ_Fireball(gp);
         attack = getAttack(); // Strength and Weapon
         defense = getDefense(); // Dexterity and Shield
     }
@@ -198,6 +200,18 @@ public class Player extends Entity {
             }
         }
 
+        if (gp.keyH.shotKeyPressed && !projectile.alive && shotAvailableCounter == 30) {
+            // Set Defaults
+            projectile.set(worldX, worldY, direction, true, this);
+
+            // Add to Array List
+            gp.projectileList.add(projectile);
+
+            shotAvailableCounter = 0;
+
+            gp.playSE(10);
+        }
+
         if (invincible) {
             invincibleCounter++;
 
@@ -206,6 +220,10 @@ public class Player extends Entity {
 
                 invincibleCounter = 0;
             }
+        }
+
+        if (shotAvailableCounter < 30) {
+            shotAvailableCounter++;
         }
     }
 
@@ -251,7 +269,7 @@ public class Player extends Entity {
 
             // Check Monster Collision with Updated Collision Box
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
-            damageMonster(monsterIndex);
+            damageMonster(monsterIndex, attack);
 
             // Reset Player Position After Collision
             worldX = currentWorldX;
@@ -303,7 +321,7 @@ public class Player extends Entity {
 
     public void contactMonster(int i) {
         if (i != 999) {
-            if (!invincible) {
+            if (!invincible && !gp.monster[i].dying) {
                 gp.playSE(6);
 
                 int damage = gp.monster[i].attack - defense;
@@ -319,7 +337,7 @@ public class Player extends Entity {
         }
     }
 
-    public void damageMonster(int i) {
+    public void damageMonster(int i, int attack) {
         if (i != 999) {
             if (!gp.monster[i].invincible) {
                 gp.playSE(5);
