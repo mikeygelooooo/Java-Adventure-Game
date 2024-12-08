@@ -65,6 +65,7 @@ public class Entity {
     public Projectile projectile;
 
     // Item Attributes
+    public int value;
     public int attackValue;
     public int defenseValue;
     public String description = "";
@@ -79,6 +80,7 @@ public class Entity {
     public final int type_axe = 4;
     public final int type_shield = 5;
     public final int type_consumable = 6;
+    public final int type_pickupOnly = 7;
 
     public Entity(GamePanel gp) {
         this.gp = gp;
@@ -123,6 +125,22 @@ public class Entity {
 
     public void use(Entity entity) {
 
+    }
+
+    public void checkDrop() {
+
+    }
+
+    public void dropItem(Entity droppedItem) {
+        for (int i = 0; i < gp.obj.length; i++) {
+            if (gp.obj[i] == null) {
+                gp.obj[i] = droppedItem;
+                gp.obj[i].worldX = worldX;
+                gp.obj[i].worldY = worldY;
+
+                break;
+            }
+        }
     }
 
     public void update() {
@@ -279,7 +297,7 @@ public class Entity {
                 dyingAnimation(g2);
             }
 
-            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+            g2.drawImage(image, screenX, screenY, null);
 
             // Reset Opacity
             changeAlpha(g2, 1F);
