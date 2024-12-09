@@ -16,44 +16,9 @@ public class AssetSetter {
     public void setObject() {
         int i = 0;
 
-        gp.obj[i] = new OBJ_Coin_Bronze(gp);
-        gp.obj[i].worldX = gp.tileSize * 25;
-        gp.obj[i].worldY = gp.tileSize * 23;
-        i++;
-
-        gp.obj[i] = new OBJ_Coin_Bronze(gp);
-        gp.obj[i].worldX = gp.tileSize * 21;
-        gp.obj[i].worldY = gp.tileSize * 19;
-        i++;
-
-        gp.obj[i] = new OBJ_Coin_Bronze(gp);
-        gp.obj[i].worldX = gp.tileSize * 26;
-        gp.obj[i].worldY = gp.tileSize * 21;
-        i++;
-
         gp.obj[i] = new OBJ_Axe(gp);
-        gp.obj[i].worldX = gp.tileSize * 25;
-        gp.obj[i].worldY = gp.tileSize * 21;
-        i++;
-
-        gp.obj[i] = new OBJ_Shield_Blue(gp);
-        gp.obj[i].worldX = gp.tileSize * 35;
-        gp.obj[i].worldY = gp.tileSize * 21;
-        i++;
-
-        gp.obj[i] = new OBJ_Potion_Red(gp);
-        gp.obj[i].worldX = gp.tileSize * 22;
-        gp.obj[i].worldY = gp.tileSize * 27;
-        i++;
-
-        gp.obj[i] = new OBJ_Heart(gp);
-        gp.obj[i].worldX = gp.tileSize * 22;
-        gp.obj[i].worldY = gp.tileSize * 29;
-        i++;
-
-        gp.obj[i] = new OBJ_ManaCrystal(gp);
-        gp.obj[i].worldX = gp.tileSize * 22;
-        gp.obj[i].worldY = gp.tileSize * 31;
+        gp.obj[i].worldX = gp.tileSize * 33;
+        gp.obj[i].worldY = gp.tileSize * 7;
         i++;
     }
 
@@ -110,23 +75,6 @@ public class AssetSetter {
         gp.iTile[i] = new IT_DryTree(gp, 33, 12);
         i++;
 
-        gp.iTile[i] = new IT_DryTree(gp, 30, 20);
-        i++;
-        gp.iTile[i] = new IT_DryTree(gp, 30, 21);
-        i++;
-        gp.iTile[i] = new IT_DryTree(gp, 30, 22);
-        i++;
-        gp.iTile[i] = new IT_DryTree(gp, 20, 20);
-        i++;
-        gp.iTile[i] = new IT_DryTree(gp, 20, 21);
-        i++;
-        gp.iTile[i] = new IT_DryTree(gp, 20, 22);
-        i++;
-        gp.iTile[i] = new IT_DryTree(gp, 22, 24);
-        i++;
-        gp.iTile[i] = new IT_DryTree(gp, 23, 24);
-        i++;
-        gp.iTile[i] = new IT_DryTree(gp, 24, 24);
-        i++;
+        gp.iTile[i] = new IT_DryTree(gp, 31, 21);
     }
 }
