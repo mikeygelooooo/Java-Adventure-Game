@@ -2,7 +2,6 @@ package main;
 
 import entity.Entity;
 import entity.Player;
-import entity.Projectile;
 import tile.TileManager;
 import tile_interactive.InteractiveTile;
 
@@ -33,6 +32,7 @@ public class GamePanel extends JPanel implements Runnable {
     int screenHeight2 = screenHeight;
     BufferedImage tempScreen;
     Graphics2D g2;
+    public boolean fullScreenOn = false;
 
     // Frames Per Second
     int FPS = 60;
@@ -65,6 +65,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int pauseState = 2;
     public final int dialogState = 3;
     public final int characterState = 4;
+    public final int optionsState = 5;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
