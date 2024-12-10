@@ -37,9 +37,9 @@ public class NPC_OldMan extends Entity {
 
     public void setDialog() {
         dialogs[0] = "Greetings, traveler.";
-        dialogs[1] = "Ah, so you've come to our humble village\nin search of hidden treasures?";
-        dialogs[2] = "I was an adventurer once, but the years\nhave turned my daring quests into\nfond memories of days long past.";
-        dialogs[3] = "May fortune smile upon your journey,\nbrave young soul.";
+        dialogs[1] = "Ah, so you've come to our humble village in search\nof hidden treasures?";
+        dialogs[2] = "I was an adventurer once, but the years have turned\nmy daring quests into fond memories of the past.";
+        dialogs[3] = "May fortune smile upon your journey, brave soul.";
     }
 
     public void setAction() {

@@ -9,11 +9,13 @@ public class OBJ_Axe extends Entity {
 
         type = type_axe;
         name = "Woodcutter's Axe";
-        down1 = setup("/objects/axe", gp.tileSize, gp.tileSize);
         description = "[" + name + "]\nAn axe used for chopping\nwood.";
+        price = 75;
 
         attackValue = 2;
         attackArea.width = 30;
         attackArea.height = 36;
+
+        down1 = setup("/objects/axe", gp.tileSize, gp.tileSize);
     }
 }

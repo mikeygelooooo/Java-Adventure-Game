@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Entity {
     GamePanel gp;
@@ -65,11 +66,14 @@ public class Entity {
     public Projectile projectile;
 
     // Item Attributes
+    public ArrayList<Entity> inventory = new ArrayList<>();
+    public final int maxInventorySize = 20;
     public int value;
     public int attackValue;
     public int defenseValue;
     public String description = "";
     public int useCost;
+    public int price;
 
     // Entity Types
     public int type;
@@ -218,7 +222,7 @@ public class Entity {
 
         spriteCounter++;
 
-        if (spriteCounter > 10) {
+        if (spriteCounter > 24) {
             if (spriteNum == 1) {
                 spriteNum = 2;
             } else if (spriteNum == 2) {
