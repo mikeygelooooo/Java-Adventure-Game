@@ -17,8 +17,8 @@ public class NPC_OldMan extends Entity {
         solidArea.y = 16;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width = 32;
-        solidArea.height = 32;
+        solidArea.width = 30;
+        solidArea.height = 30;
 
         getImage();
         setDialog();
@@ -43,31 +43,45 @@ public class NPC_OldMan extends Entity {
     }
 
     public void setAction() {
-        actionLockCounter++;
+        if (onPath) {
+            // Tile as Goal
+            // int goalCol = 12;
+            // int goalRow = 9;
 
-        if (actionLockCounter == 120) {
-            Random random = new Random();
+            // Player as Goal
+            int goalCol = (gp.player.worldX + gp.player.solidArea.x) / gp.tileSize;
+            int goalRow = (gp.player.worldY + gp.player.solidArea.y) / gp.tileSize;
 
-            int i = random.nextInt(100) + 1;
+            searchPath(goalCol, goalRow);
+        } else {
+            actionLockCounter++;
 
-            if (i <= 25) {
-                direction = "up";
-            }
-            if (i > 25 && i <= 50) {
-                direction = "down";
-            }
-            if (i > 50 && i <= 75) {
-                direction = "left";
-            }
-            if (i > 75) {
-                direction = "right";
-            }
+            if (actionLockCounter == 120) {
+                Random random = new Random();
 
-            actionLockCounter = 0;
+                int i = random.nextInt(100) + 1;
+
+                if (i <= 25) {
+                    direction = "up";
+                }
+                if (i > 25 && i <= 50) {
+                    direction = "down";
+                }
+                if (i > 50 && i <= 75) {
+                    direction = "left";
+                }
+                if (i > 75) {
+                    direction = "right";
+                }
+
+                actionLockCounter = 0;
+            }
         }
     }
 
     public void speak() {
         super.speak();
+
+        onPath = true;
     }
 }
