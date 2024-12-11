@@ -40,12 +40,10 @@ public class OBJ_Chest extends Entity{
             StringBuilder sb = new StringBuilder();
             sb.append("You obtained a " + loot.name + "!");
 
-            if (gp.player.inventory.size() == gp.player.maxInventorySize) {
-                sb.append("\nUnfoetunately, you cannot carry any more items!");
+            if (!gp.player.canObtainItem(loot)) {
+                sb.append("\nUnfortunately, you cannot carry any more items!");
             } else {
                 sb.append("\nYou have found the hidden treasure!");
-
-                gp.player.inventory.add(loot);
 
                 down1 = image2;
 
