@@ -9,7 +9,7 @@ public class OBJ_Axe extends Entity {
 
         type = type_axe;
         name = "Woodcutter's Axe";
-        description = "[" + name + "]\nAn axe used for chopping\nwood.";
+        description = "[" + name + "]\nAn axe used for\nchopping wood.";
         price = 75;
 
         attackValue = 2;

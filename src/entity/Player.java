@@ -86,6 +86,7 @@ public class Player extends Entity {
         inventory.add(currentWeapon);
         inventory.add(currentShield);
         inventory.add(new OBJ_Axe(gp));
+        inventory.add(new OBJ_Key(gp));
     }
 
     public int getAttack() {
@@ -344,7 +345,12 @@ public class Player extends Entity {
             if (gp.obj[gp.currentMap][i].type == type_pickupOnly) {
                 gp.obj[gp.currentMap][i].use(this);
                 gp.obj[gp.currentMap][i] = null;
+            } else if (gp.obj[gp.currentMap][i].type == type_obstacle) {
+                if (keyH.enterPressed) {
+                    attackCanceled = true;
 
+                    gp.obj[gp.currentMap][i].interact();
+                }
             } else {
                 String text;
 
@@ -501,9 +507,9 @@ public class Player extends Entity {
             }
 
             if (selectedItem.type == type_consumable) {
-                selectedItem.use(this);
-
-                inventory.remove(itemIndex);
+                if (selectedItem.use(this)) {
+                    inventory.remove(itemIndex);
+                }
             }
         }
     }

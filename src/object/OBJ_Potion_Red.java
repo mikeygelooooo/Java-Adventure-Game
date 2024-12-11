@@ -23,12 +23,14 @@ public class OBJ_Potion_Red extends Entity {
         down1 = setup("/objects/potion_red", gp.tileSize, gp.tileSize);
     }
 
-    public void use(Entity entity) {
+    public boolean use(Entity entity) {
         gp.gameState = gp.dialogState;
         gp.ui.currentDialog = "You have recovered " + value + " HP!";
 
         entity.life += value;
 
         gp.playSE(2);
+
+        return true;
     }
 }
