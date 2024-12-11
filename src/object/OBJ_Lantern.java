@@ -9,7 +9,7 @@ public class OBJ_Lantern extends Entity {
 
         type = type_light;
         name = "Lantern";
-        description = "[" + name + "]\nIlluminates the surroundings.";
+        description = "[" + name + "]\nIlluminates the\nsurroundings.";
         price = 200;
         lightRadius = 250;
 
