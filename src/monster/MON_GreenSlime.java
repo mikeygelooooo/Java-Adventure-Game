@@ -73,21 +73,21 @@ public class MON_GreenSlime extends Entity {
 
             searchPath(goalCol, goalRow);
 
-            int i = new Random().nextInt(200) + 1;
-
-            if (i > 195 && !projectile.alive && shotAvailableCounter == 30) {
-                projectile.set(worldX, worldY, direction, true, this);
-
-                for (int j = 0; j < gp.projectile[1].length; j++) {
-                    if (gp.projectile[gp.currentMap][j] == null) {
-                        gp.projectile[gp.currentMap][j] = projectile;
-
-                        break;
-                    }
-                }
-
-                shotAvailableCounter = 0;
-            }
+//            int i = new Random().nextInt(200) + 1;
+//
+//            if (i > 195 && !projectile.alive && shotAvailableCounter == 30) {
+//                projectile.set(worldX, worldY, direction, true, this);
+//
+//                for (int j = 0; j < gp.projectile[1].length; j++) {
+//                    if (gp.projectile[gp.currentMap][j] == null) {
+//                        gp.projectile[gp.currentMap][j] = projectile;
+//
+//                        break;
+//                    }
+//                }
+//
+//                shotAvailableCounter = 0;
+//            }
         } else {
             actionLockCounter++;
 
