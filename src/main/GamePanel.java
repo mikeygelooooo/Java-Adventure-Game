@@ -221,6 +221,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
 
+            eManager.update();
 
         }
         if (gameState == pauseState) {
