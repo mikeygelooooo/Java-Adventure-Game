@@ -28,7 +28,7 @@ public class OBJ_Tent extends Entity {
         gp.player.life = gp.player.maxLife;
         gp.player.mana = gp.player.maxMana;
 
-        gp.player.getPlayerSleepImage(down1);
+        gp.player.getrSleepImage(down1);
 
         return true;
     }

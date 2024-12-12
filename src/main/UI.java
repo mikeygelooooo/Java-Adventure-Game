@@ -1079,7 +1079,7 @@ public class UI {
 
                 gp.gameState = gp.playState;
 
-                gp.player.getPlayerImage();
+                gp.player.getImage();
             }
         }
     }

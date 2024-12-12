@@ -30,7 +30,7 @@ public class CollisionChecker {
             direction = entity.knockbackDirection;
         }
 
-        switch (entity.direction) {
+        switch (direction) {
             case "up":
                 entityTopRow = (entityTopWorldY - entity.speed) / gp.tileSize;
 
