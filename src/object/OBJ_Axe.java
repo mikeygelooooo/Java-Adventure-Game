@@ -16,6 +16,8 @@ public class OBJ_Axe extends Entity {
         attackArea.width = 30;
         attackArea.height = 36;
         knockbackPower = 10;
+        motion1_duration = 20;
+        motion2_duration = 40;
 
         down1 = setup("/objects/axe", gp.tileSize, gp.tileSize);
     }

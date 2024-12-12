@@ -93,6 +93,9 @@ public class Player extends Entity {
     public int getAttack() {
         attackArea = currentWeapon.attackArea;
 
+        motion1_duration = currentWeapon.motion1_duration;
+        motion2_duration = currentWeapon.motion2_duration;
+
         return  attack = strength * currentWeapon.attackValue;
     }
 
@@ -285,73 +288,6 @@ public class Player extends Entity {
         }
     }
 
-    public void attacking() {
-        spriteCounter++;
-
-        if (spriteCounter <= 5) {
-            spriteNum = 1;
-        }
-
-        if (spriteCounter > 5 && spriteCounter <= 25) {
-            spriteNum = 2;
-
-            // Save Current Player Position
-            int currentWorldX = worldX;
-            int currentWorldY = worldY;
-            int solidAreaWidth = solidArea.width;
-            int solidAreaHeight = solidArea.height;
-
-            // Adjust Player Current Position
-            switch (direction) {
-                case "up":
-                    worldY -= attackArea.height;
-
-                    break;
-                case "down":
-                    worldY += attackArea.height;
-
-                    break;
-                case "left":
-                    worldX -= attackArea.width;
-
-                    break;
-                case "right":
-                    worldX += attackArea.width;
-
-                    break;
-            }
-
-            // Turn Attack Area into Collision Box
-            solidArea.width = attackArea.width;
-            solidArea.height = attackArea.height;
-
-            // Check Monster Collision with Updated Collision Box
-            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
-            damageMonster(monsterIndex, attack, currentWeapon.knockbackPower);
-
-            // Check Interactive Tile Collision
-            int iTileIndex = gp.cChecker.checkEntity(this, gp.iTile);
-            damageInteractiveTile(iTileIndex);
-
-            int projectileIndex = gp.cChecker.checkEntity(this, gp.projectile);
-            damageProjectile(projectileIndex);
-
-            // Reset Player Position After Collision
-            worldX = currentWorldX;
-            worldY = currentWorldY;
-            solidArea.width = solidAreaWidth;
-            solidArea.height = solidAreaHeight;
-        }
-
-        if (spriteCounter > 25) {
-            spriteNum = 1;
-
-            spriteCounter = 0;
-
-            attacking = false;
-        }
-    }
-
     public void pickUpObject(int i) {
         if (i != 999) {
             if (gp.obj[gp.currentMap][i].type == type_pickupOnly) {
@@ -411,13 +347,13 @@ public class Player extends Entity {
         }
     }
 
-    public void damageMonster(int i, int attack, int knockbackPower) {
+    public void damageMonster(int i, Entity attacker, int attack, int knockbackPower) {
         if (i != 999) {
             if (!gp.monster[gp.currentMap][i].invincible) {
                 gp.playSE(5);
 
                 if (knockbackPower > 0) {
-                    knockback(gp.monster[gp.currentMap][i], knockbackPower);
+                    setKnockback(gp.monster[gp.currentMap][i], attacker, knockbackPower);
                 }
 
 
@@ -444,12 +380,6 @@ public class Player extends Entity {
                 }
             }
         }
-    }
-
-    public void knockback (Entity entity, int knockbackPower) {
-        entity.direction = direction;
-        entity.speed += knockbackPower;
-        entity.knockback = true;
     }
 
     public void damageInteractiveTile(int i) {
