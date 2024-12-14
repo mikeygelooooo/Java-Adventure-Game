@@ -825,6 +825,8 @@ public class UI {
                 gp.stopMusic();
 
                 gp.gameState = gp.titleState;
+
+                gp.resetGame(true);
             }
         }
 
