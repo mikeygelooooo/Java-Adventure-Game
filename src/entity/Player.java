@@ -1,5 +1,6 @@
 package entity;
 
+import main.EntityGenerator;
 import main.GamePanel;
 import main.KeyHandler;
 import object.*;
@@ -57,7 +58,7 @@ public class Player extends Entity {
         dexterity = 1;
         exp = 0;
         nextLevelExp = 5;
-        coin = 0;
+        coin = 500;
         currentWeapon = new OBJ_Sword_Normal(gp);
         currentShield = new OBJ_Shield_Wood(gp);
         currentLight = null;
@@ -534,6 +535,7 @@ public class Player extends Entity {
 
             gp.gameState = gp.dialogState;
 
+            setDialog();
             startDialog(gp.player, 0);
         }
     }
@@ -597,9 +599,11 @@ public class Player extends Entity {
     public boolean canObtainItem(Entity item) {
         boolean canObtain = false;
 
+        Entity newItem = gp.eGenerator.getObject(item.name);
+
         // Check if Item is Stackable
-        if (item.stackable) {
-            int index = searchItemInInventory(item.name);
+        if (newItem.stackable) {
+            int index = searchItemInInventory(newItem.name);
 
             if (index != 999) {
                 inventory.get(index).amount++;
@@ -607,14 +611,14 @@ public class Player extends Entity {
                 canObtain = true;
             } else {
                 if (inventory.size() != maxInventorySize) {
-                    inventory.add(item);
+                    inventory.add(newItem);
 
                     canObtain = true;
                 }
             }
         } else {
             if (inventory.size() != maxInventorySize) {
-                inventory.add(item);
+                inventory.add(newItem);
 
                 canObtain = true;
             }

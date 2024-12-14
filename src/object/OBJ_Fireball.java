@@ -9,12 +9,14 @@ import java.awt.*;
 public class OBJ_Fireball extends Projectile {
     GamePanel gp;
 
+    public static final String ojbName = "Fireball";
+
     public OBJ_Fireball(GamePanel gp) {
         super(gp);
 
         this.gp = gp;
 
-        name = "Fireball";
+        name = ojbName;
 
         speed = 5;
 

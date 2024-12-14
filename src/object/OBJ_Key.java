@@ -6,13 +6,15 @@ import entity.Entity;
 public class OBJ_Key extends Entity{
     GamePanel gp;
 
+    public static final String ojbName = "Key";
+
     public OBJ_Key(GamePanel gp) {
         super(gp);
 
         this.gp = gp;
 
         type = type_consumable;
-        name = "Key";
+        name = ojbName;
         description = "[" + name + "]\nKey to a locked door.";
         price = 100;
         stackable = true;

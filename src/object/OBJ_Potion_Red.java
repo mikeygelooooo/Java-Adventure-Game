@@ -7,6 +7,7 @@ public class OBJ_Potion_Red extends Entity {
     GamePanel gp;
 
     int value = 5;
+    public static final String ojbName = "Red Potion";
 
     public OBJ_Potion_Red(GamePanel gp) {
         super(gp);
@@ -14,7 +15,7 @@ public class OBJ_Potion_Red extends Entity {
         this.gp = gp;
 
         type = type_consumable;
-        name = "Red Potion";
+        name = ojbName;
         description = "[" + name + "]\nHeals for " + value + " HP.";
         price = 25;
         stackable = true;
