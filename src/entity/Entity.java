@@ -23,7 +23,7 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collision = false;
 
-    String[] dialogs = new String[20];
+    public String[][] dialogs = new String[20][20];
 
     public Entity attacker;
 
@@ -31,7 +31,8 @@ public class Entity {
     public int worldX, worldY;
     public String direction = "down";
     public int spriteNum = 1;
-    int dialogIndex = 0;
+    public int dialogSet = 0;
+    public int dialogIndex = 0;
     public boolean collisionOn = false;
     public boolean invincible = false;
     public boolean attacking = false;
@@ -168,6 +169,18 @@ public class Entity {
         return goalRow;
     }
 
+    public void resetCounter () {
+        spriteCounter = 0;
+        actionLockCounter = 0;
+        invincibleCounter = 0;
+        shotAvailableCounter = 0;
+        dyingCounter = 0;
+        hpBarCounter = 0;
+        knockbackCounter = 0;
+        guardCounter = 0;
+        offBalanceCounter = 0;
+    }
+
     public void setLoot(Entity loot) {
 
     }
@@ -181,14 +194,10 @@ public class Entity {
     }
 
     public void speak() {
-        if (dialogs[dialogIndex] == null) {
-            dialogIndex = 0;
-        }
 
-        gp.ui.currentDialog = dialogs[dialogIndex];
+    }
 
-        dialogIndex++;
-
+    public void facePlayer() {
         switch (gp.player.direction) {
             case "up":
                 direction = "down";
@@ -207,6 +216,12 @@ public class Entity {
 
                 break;
         }
+    }
+
+    public void startDialog(Entity entity, int setNum) {
+        gp.gameState = gp.dialogState;
+        gp.ui.npc = entity;
+        dialogSet = setNum;
     }
 
     public void interact() {

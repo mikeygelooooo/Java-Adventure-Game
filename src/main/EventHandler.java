@@ -6,6 +6,7 @@ import entity.Entity;
 public class EventHandler {
     GamePanel gp;
     EventRect[][][] eventRect;
+    Entity eventMaster;
 
     int previousEventX, previousEventY;
     boolean canTouchEvent = true;
@@ -14,6 +15,7 @@ public class EventHandler {
 
     public EventHandler(GamePanel gp) {
         this.gp = gp;
+        eventMaster = new Entity(gp);
         eventRect = new EventRect[gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
 
         int map = 0;
@@ -44,6 +46,13 @@ public class EventHandler {
             }
         }
 
+        setDialog();
+    }
+
+    public void setDialog() {
+        eventMaster.dialogs[0][0] = "You fall into a pit!";
+
+        eventMaster.dialogs[1][0] = "You drank from the Lake of Vitality!\nYou have recovered your health and mana!\n\n[Your progress has been saved!]";
     }
 
     public void checkEvent() {
@@ -104,7 +113,7 @@ public class EventHandler {
     public void damagePit(int gameState) {
         gp.gameState = gameState;
         gp.playSE(6);
-        gp.ui.currentDialog = "You fall into a pit!";
+        eventMaster.startDialog(eventMaster, 0);
         gp.player.life -= 1;
 
         canTouchEvent = false;
@@ -115,7 +124,8 @@ public class EventHandler {
             gp.gameState = gameState;
             gp.player.attackCanceled = true;
             gp.playSE(2);
-            gp.ui.currentDialog = "You drank from the Lake of Vitality!\nYou have recovered your health and mana!\n\n[Your progress has been saved!]";
+
+            eventMaster.startDialog(eventMaster, 1);
             gp.player.life = gp.player.maxLife;
             gp.player.mana = gp.player.maxMana;
 

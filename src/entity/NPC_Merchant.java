@@ -37,9 +37,15 @@ public class NPC_Merchant extends Entity{
     }
 
     public void setDialog() {
-        dialogs[0] = "Care to trade? I've got... unique goods.";
-        dialogs[1] = "For you? A special price! Don't ask why.";
-        dialogs[2] = "Buy now, regret later! It's my motto.";
+        dialogs[0][0] = "Care to trade? I've got... unique goods.";
+
+        dialogs[1][0] = "Safe travels! And don’t forget who gave you that deal.";
+
+        dialogs[2][0] = "You don't have enough coins!";
+
+        dialogs[3][0] = "Your inventory is full!";
+
+        dialogs[4][0] = "You cannot sell an equipped item!";
     }
 
     public void setItems() {
@@ -52,7 +58,7 @@ public class NPC_Merchant extends Entity{
     }
 
     public void speak() {
-        super.speak();
+        facePlayer();
 
         gp.gameState = gp.tradeState;
 

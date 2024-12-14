@@ -96,7 +96,7 @@ public class Lighting {
         if (dayState == day) {
             dayCounter++;
 
-            if (dayCounter > 900) {
+            if (dayCounter > 3600) {
                 dayState = dusk;
 
                 dayCounter = 0;
@@ -114,7 +114,7 @@ public class Lighting {
         if (dayState == night) {
             dayCounter++;
 
-            if (dayCounter > 900) {
+            if (dayCounter > 3600) {
                 dayState = dawn;
 
                 dayCounter = 0;

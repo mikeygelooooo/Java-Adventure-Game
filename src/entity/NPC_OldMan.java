@@ -20,6 +20,8 @@ public class NPC_OldMan extends Entity {
         solidArea.width = 30;
         solidArea.height = 30;
 
+        dialogSet = -1;
+
         getImage();
         setDialog();
     }
@@ -36,10 +38,16 @@ public class NPC_OldMan extends Entity {
     }
 
     public void setDialog() {
-        dialogs[0] = "Greetings, traveler.";
-        dialogs[1] = "Ah, so you've come to our humble village in search\nof hidden treasures?";
-        dialogs[2] = "I was an adventurer once, but the years have turned\nmy daring quests into fond memories of the past.";
-        dialogs[3] = "May fortune smile upon your journey, brave soul.";
+        dialogs[0][0] = "Greetings, traveler.";
+        dialogs[0][1] = "Ah, so you've come to our humble village in search\nof hidden treasures?";
+        dialogs[0][2] = "I was an adventurer once, but the years have turned\nmy daring quests into fond memories of the past.";
+        dialogs[0][3] = "May fortune smile upon your journey, brave soul.";
+
+        dialogs[1][0] = "The lake water works wonders for your health!";
+        dialogs[1][1] = "Although monsters appear whenever someone drinks\nthe lake water.";
+        dialogs[1][2] = "In any case, keep safe young traveler!";
+
+        dialogs[2][0] = "I wonder if there is any way to open that door.";
     }
 
     public void setAction() {
@@ -80,8 +88,16 @@ public class NPC_OldMan extends Entity {
     }
 
     public void speak() {
-        super.speak();
+        facePlayer();
 
-        onPath = true;
+        startDialog(this, dialogSet);
+
+        dialogSet++;
+
+        if (dialogs[dialogSet][0] == null) {
+            dialogSet--;
+        }
+
+        // onPath = true;
     }
 }

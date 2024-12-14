@@ -30,31 +30,30 @@ public class OBJ_Chest extends Entity{
     public void setLoot(Entity loot) {
         this.loot = loot;
 
+        setDialog();
+    }
 
+    public void setDialog() {
+        dialogs[0][0] = "You obtained a " + loot.name + "!\nUnfortunately, you cannot carry any more items!";
+        dialogs[1][0] = "You obtained a " + loot.name + "!\nYou have obtained a " + loot.name + "!";
+        dialogs[2][0] = "The loot was already taken!";
     }
 
     public void interact() {
-        gp.gameState = gp.dialogState;
-
         if (!opened) {
             gp.playSE(3);
 
-            StringBuilder sb = new StringBuilder();
-            sb.append("You obtained a " + loot.name + "!");
-
             if (!gp.player.canObtainItem(loot)) {
-                sb.append("\nUnfortunately, you cannot carry any more items!");
+                startDialog(this, 0);
             } else {
-                sb.append("\nYou have found the hidden treasure!");
+                startDialog(this, 1);
 
                 down1 = image2;
 
                 opened = true;
             }
-
-            gp.ui.currentDialog = sb.toString();
         } else {
-            gp.ui.currentDialog = "The loot was already taken!";
+            startDialog(this, 2);
         }
     }
 }

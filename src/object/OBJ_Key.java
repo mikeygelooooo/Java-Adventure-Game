@@ -18,15 +18,21 @@ public class OBJ_Key extends Entity{
         stackable = true;
 
         down1 = setup("/objects/key", gp.tileSize, gp.tileSize);
+
+        setDialog();
+    }
+
+    public void setDialog() {
+        dialogs[0][0] = "You have opened the door!";
+
+        dialogs[1][0] = "There is no door here!";
     }
 
     public boolean use(Entity entity) {
-        gp.gameState = gp.dialogState;
-
         int objIndex = getDetected(entity, gp.obj, "Door");
 
         if (objIndex != 999) {
-            gp.ui.currentDialog = "You have opened the door!";
+            startDialog(this, 0);
 
             gp.playSE(3);
 
@@ -34,7 +40,7 @@ public class OBJ_Key extends Entity{
 
             return true;
         } else {
-            gp.ui.currentDialog = "There is no door here!";
+            startDialog(this, 1);
 
             return false;
         }
