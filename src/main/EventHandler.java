@@ -1,6 +1,5 @@
 package main;
 
-
 import entity.Entity;
 
 public class EventHandler {
@@ -80,7 +79,7 @@ public class EventHandler {
             } else if (hit(2, 9, 41, "any")) {
                 teleport(0, 12, 9, gp.outside);
             } else if (hit(2, 8, 7, "any")) {
-                teleport(3, 26, 41, gp.outside);
+                teleport(3, 26, 41, gp.dungeon);
             } else if (hit(3, 26, 41, "any")) {
                 teleport(2, 8, 7, gp.dungeon);
             }

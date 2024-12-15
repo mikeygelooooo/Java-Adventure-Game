@@ -34,6 +34,10 @@ public class EntityGenerator {
                 obj = new OBJ_Door(gp);
 
                 break;
+            case OBJ_Door_Iron.ojbName:
+                obj = new OBJ_Door_Iron(gp);
+
+                break;
             case OBJ_Fireball.ojbName:
                 obj = new OBJ_Fireball(gp);
 
@@ -52,6 +56,10 @@ public class EntityGenerator {
                 break;
             case OBJ_ManaCrystal.ojbName:
                 obj = new OBJ_ManaCrystal(gp);
+
+                break;
+            case OBJ_Pickaxe.ojbName:
+                obj = new OBJ_Pickaxe(gp);
 
                 break;
             case OBJ_Potion_Red.ojbName:

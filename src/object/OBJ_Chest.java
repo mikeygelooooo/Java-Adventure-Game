@@ -36,8 +36,8 @@ public class OBJ_Chest extends Entity{
     }
 
     public void setDialog() {
-        dialogs[0][0] = "You obtained a " + loot.name + "!\nUnfortunately, you cannot carry any more items!";
-        dialogs[1][0] = "You obtained a " + loot.name + "!\nYou have obtained a " + loot.name + "!";
+        dialogs[0][0] = "You found some treasure!\nUnfortunately, you cannot carry any more items!";
+        dialogs[1][0] = "You found some treasure!\nYou have obtained a " + loot.name + "!";
         dialogs[2][0] = "The loot was already taken!";
     }
 
