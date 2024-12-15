@@ -32,7 +32,7 @@ public class Lighting {
         Graphics2D g2 = (Graphics2D) darknessFilter.getGraphics();
 
         if (gp.player.currentLight == null) {
-            g2.setColor(new Color(0, 0, 0.1F, 0.98F));
+            g2.setColor(new Color(0, 0, 0.1F, 0.97F));
         } else {
             // Get the Center Coordinates of the Light Circle
             int centerX = gp.player.screenX + (gp.tileSize / 2);
@@ -51,9 +51,9 @@ public class Lighting {
             color[6] = new Color(0, 0, 0.1F, 0.82F);
             color[7] = new Color(0, 0, 0.1F, 0.87F);
             color[8] = new Color(0, 0, 0.1F, 0.91F);
-            color[9] = new Color(0, 0, 0.1F, 0.94F);
-            color[10] = new Color(0, 0, 0.1F, 0.96F);
-            color[11] = new Color(0, 0, 0.1F, 0.98F);
+            color[9] = new Color(0, 0, 0.1F, 0.92F);
+            color[10] = new Color(0, 0, 0.1F, 0.93F);
+            color[11] = new Color(0, 0, 0.1F, 0.94F);
 
             fraction[0] = 0f;
             fraction[1] = 0.4f;

@@ -57,7 +57,7 @@ public class MON_GreenSlime extends Entity {
             checkStartChasingOrNot(gp.player, 5, 100);
 
             // Random Movement if not Aggro
-            getRandomDirection();
+            getRandomDirection(120);
         }
     }
 
@@ -71,7 +71,7 @@ public class MON_GreenSlime extends Entity {
         int i = new Random().nextInt(100) + 1;
 
         // Randomize Monster Drop
-        if ( i < 60) {
+        if (i < 60) {
             dropItem(new OBJ_Coin_Bronze(gp));
         }
         if (i >= 60 && i <= 80) {

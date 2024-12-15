@@ -64,7 +64,7 @@ public class MON_RedSlime extends Entity {
             checkStartChasingOrNot(gp.player, 5, 100);
 
             // Random Movement if not Aggro
-            getRandomDirection();
+            getRandomDirection(120);
         }
     }
 

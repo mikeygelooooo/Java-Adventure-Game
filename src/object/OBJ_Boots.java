@@ -4,13 +4,40 @@ import main.GamePanel;
 import entity.Entity;
 
 public class OBJ_Boots extends Entity {
+    GamePanel gp;
+
+    int value = 5;
     public static final String ojbName = "Boots";
 
     public OBJ_Boots(GamePanel gp) {
         super(gp);
 
+        this.gp = gp;
+
+        type = type_consumable;
         name = ojbName;
+        description = "[" + name + "]\nAdds " + value + " speed.";
+        price = 25;
+        stackable = true;
+
+        value = 2;
 
         down1 = setup("/objects/boots", gp.tileSize, gp.tileSize);
+
+        setDialog();
+    }
+
+    public void setDialog() {
+        dialogs[0][0] = "You have added " + value + " speed!";
+    }
+
+    public boolean use(Entity entity) {
+        startDialog(this, 0);
+
+        entity.speed += value;
+
+        gp.playSE(2);
+
+        return true;
     }
 }

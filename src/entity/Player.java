@@ -55,7 +55,7 @@ public class Player extends Entity {
         maxMana = 4;
         mana = maxMana;
         ammo = 10;
-        strength = 1;
+        strength = 5;
         dexterity = 1;
         exp = 0;
         nextLevelExp = 5;
@@ -75,10 +75,10 @@ public class Player extends Entity {
     }
 
     public void setDefaultPosition() {
+        gp.currentMap = 0;
+
         worldX = gp.tileSize * 23;
         worldY = gp.tileSize * 21;
-
-        gp.currentMap = 0;
 
         direction = "down";
     }
