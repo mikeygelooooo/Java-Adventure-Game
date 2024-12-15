@@ -902,6 +902,8 @@ public class UI {
 
             gp.eHandler.previousEventX = gp.player.worldX;
             gp.eHandler.previousEventY = gp.player.worldY;
+
+            gp.changeArea();
         }
     }
 

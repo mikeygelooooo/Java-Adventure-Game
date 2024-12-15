@@ -23,7 +23,6 @@ public class MON_GreenSlime extends Entity {
         attack = 5;
         defense = 0;
         exp = 2;
-        projectile = new OBJ_Rock(gp);
 
         solidArea.x = 3;
         solidArea.y = 18;
@@ -53,9 +52,6 @@ public class MON_GreenSlime extends Entity {
 
             // Player as Goal
             searchPath(getGoalCol(gp.player), getGoalRow(gp.player));
-
-            // Shoot Projectile
-            checkShootOrNot(200, 30);
         } else {
             // Aggro Probability
             checkStartChasingOrNot(gp.player, 5, 100);
