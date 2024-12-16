@@ -16,11 +16,11 @@ public class OBJ_Potion_Red extends Entity {
 
         type = type_consumable;
         name = ojbName;
-        description = "[" + name + "]\nHeals for " + value + " HP.";
-        price = 25;
+        description = "[" + name + "]\nRestores " + value + " HP.";
+        price = 3;
         stackable = true;
 
-        value = 5;
+        value = 10;
 
         down1 = setup("/objects/potion_red", gp.tileSize, gp.tileSize);
 

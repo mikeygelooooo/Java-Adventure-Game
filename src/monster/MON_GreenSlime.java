@@ -18,10 +18,10 @@ public class MON_GreenSlime extends Entity {
         name = "Green Slime";
         defaultSpeed = 1;
         speed = defaultSpeed;
-        maxLife = 4;
+        maxLife = 6;
         life = maxLife;
-        attack = 5;
-        defense = 0;
+        attack = 2;
+        defense = 1;
         exp = 2;
 
         solidArea.x = 3;
@@ -70,14 +70,20 @@ public class MON_GreenSlime extends Entity {
     public void checkDrop() {
         int i = new Random().nextInt(100) + 1;
 
+        Entity droppedItem;
+        int coinAmount = new Random().nextInt(2) + 1;
+
         // Randomize Monster Drop
-        if (i < 60) {
-            dropItem(new OBJ_Coin_Bronze(gp));
+        if (i <= 80) {
+            droppedItem = new OBJ_Coin_Bronze(gp);
+            droppedItem.value = coinAmount;
+
+            dropItem(droppedItem);
         }
-        if (i >= 60 && i <= 80) {
+        if (i > 80 && i <= 90) {
             dropItem(new OBJ_Heart(gp));
         }
-        if (i > 80 && i <= 100) {
+        if (i > 90) {
             dropItem(new OBJ_ManaCrystal(gp));
         }
     }

@@ -12,9 +12,9 @@ public class OBJ_Shield_Wood extends Entity {
         type = type_shield;
         name = ojbName;
         description = "[" + name + "]\nAn old shield.";
-        price = 35;
+        price = 10;
 
-        defenseValue = 1;
+        defenseValue = 2;
 
         down1 = setup("/objects/shield_wood", gp.tileSize, gp.tileSize);
     }

@@ -28,13 +28,12 @@ public class CutsceneManager {
         this.gp = gp;
 
         endCredit = "IT 373A - CULMINATING ACTIVITY\n" +
-                "Paña, Wit Excelsior T.\n" +
                 "BSIT 3B\n\n\n\n\n\n\n\n\n\n\n" +
                 "PROJECT BY: GROUP 5\n\n\n\n" +
                 "Leader:\n" +
                 "Ochengco, Michael Angelo A.\n\n\n\n" +
                 "Members:\n" +
-                "Lee, jade hart C.\n" +
+                "Lee, Jade hart C.\n" +
                 "Ladrera, Bevirlie Jane R.\n" +
                 "Enverzo, Ralynn G.\n\n\n\n\n\n\n\n" +
                 "THANKS FOR PLAYING!";

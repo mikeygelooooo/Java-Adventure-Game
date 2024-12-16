@@ -48,16 +48,15 @@ public class Player extends Entity {
 
         // Player Status
         level = 1;
-        maxLife = 6;
+        maxLife = 10;
         life = maxLife;
-        maxMana = 4;
+        maxMana = 3;
         mana = maxMana;
-        ammo = 10;
-        strength = 5;
+        strength = 1;
         dexterity = 1;
         exp = 0;
-        nextLevelExp = 5;
-        coin = 500;
+        nextLevelExp = 10;
+        coin = 0;
         currentWeapon = new OBJ_Sword_Normal(gp);
         currentShield = new OBJ_Shield_Wood(gp);
         currentLight = null;
@@ -104,9 +103,6 @@ public class Player extends Entity {
 
         inventory.add(currentWeapon);
         inventory.add(currentShield);
-        inventory.add(new OBJ_Axe(gp));
-        inventory.add(new OBJ_Key(gp));
-        inventory.add(new OBJ_Lantern(gp));
     }
 
     public int getAttack() {
@@ -491,7 +487,6 @@ public class Player extends Entity {
                 }
 
                 gp.monster[gp.currentMap][i].life -= damage;
-                gp.ui.addMessage(damage + " damage!");
                 gp.monster[gp.currentMap][i].invincible = true;
                 gp.monster[gp.currentMap][i].damageReaction();
 
@@ -499,7 +494,7 @@ public class Player extends Entity {
                     gp.monster[gp.currentMap][i].dying = true;
                     gp.ui.addMessage("You have killed the " + gp.monster[gp.currentMap][i].name + "!");
 
-                    gp.ui.addMessage("You have gained " + gp.monster[gp.currentMap][i].exp + " XP!");
+                    gp.ui.addMessage("+" + gp.monster[gp.currentMap][i].exp + " XP!");
                     exp += gp.monster[gp.currentMap][i].exp;
 
                     checkLevelUp();

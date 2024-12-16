@@ -4,7 +4,7 @@ import entity.Entity;
 import main.GamePanel;
 
 public class OBJ_Axe extends Entity {
-    public static final String ojbName = "Woodcutter's Axe";
+    public static final String ojbName = "Iron Axe";
 
     public OBJ_Axe(GamePanel gp) {
         super(gp);
@@ -12,7 +12,7 @@ public class OBJ_Axe extends Entity {
         type = type_axe;
         name = ojbName;
         description = "[" + name + "]\nAn axe used for\nchopping wood.";
-        price = 75;
+        price = 15;
 
         attackValue = 2;
         attackArea.width = 30;

@@ -3,10 +3,7 @@ package monster;
 import data.Progress;
 import entity.Entity;
 import main.GamePanel;
-import object.OBJ_Door_Iron;
-import object.OBJ_Shield_Blue;
-import object.OBJ_Shield_Wood;
-import object.OBJ_Sword_Normal;
+import object.*;
 
 import java.util.Random;
 
@@ -25,10 +22,10 @@ public class MON_SkeletonLord extends Entity {
         name = monName;
         defaultSpeed = 1;
         speed = defaultSpeed;
-        maxLife = 50;
+        maxLife = 100;
         life = maxLife;
-        attack = 10;
-        defense = 2;
+        attack = 7;
+        defense = 5;
         exp = 50;
         knockbackPower = 5;
         sleep = true;
@@ -156,14 +153,10 @@ public class MON_SkeletonLord extends Entity {
 
         int i = new Random().nextInt(100) + 1;
 
-        // Randomize Monster Drop
-        if (i < 40) {
-            dropItem(new OBJ_Sword_Normal(gp));
+        if (i <= 50) {
+            dropItem(new OBJ_Axe(gp));
         }
-        if (i >= 40 && i <= 80) {
-            dropItem(new OBJ_Shield_Wood(gp));
-        }
-        if (i > 80 && i <= 100) {
+        if (i > 50) {
             dropItem(new OBJ_Shield_Blue(gp));
         }
     }

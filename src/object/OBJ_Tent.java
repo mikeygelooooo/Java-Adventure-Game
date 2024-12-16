@@ -16,7 +16,7 @@ public class OBJ_Tent extends Entity {
         type = type_consumable;
         name = ojbName;
         description = "[" + name + "]\nLets you rest until\nmorning.";
-        price = 300;
+        price = 15;
         stackable = true;
 
         down1 = setup("/objects/tent", gp.tileSize, gp.tileSize);

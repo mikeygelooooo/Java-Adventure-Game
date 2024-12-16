@@ -4,17 +4,17 @@ import entity.Entity;
 import main.GamePanel;
 
 public class OBJ_Sword_Normal extends Entity {
-    public static final String ojbName = "Normal Sword";
+    public static final String ojbName = "Iron Sword";
 
     public OBJ_Sword_Normal(GamePanel gp) {
         super(gp);
 
         type = type_sword;
         name = ojbName;
-        description = "[" + name + "]\nAn old sword.";
-        price = 20;
+        description = "[" + name + "]\nAn iron sword.";
+        price = 10;
 
-        attackValue = 1;
+        attackValue = 2;
         attackArea.width = 36;
         attackArea.height = 36;
         knockbackPower = 2;

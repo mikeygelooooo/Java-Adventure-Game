@@ -1,5 +1,19 @@
-Michael Angelo Ochengco  
-BSIT 3B  
-IT 373A - Event Driven Programming  
-Culminating Activity  
-Pixel Odyssey - Java Adventure Game
+PIXEL ODYSSEY  
+
+EASTERN VISAYAS STATE UNIVERSITY - MAIN CAMPUS  
+BS INFORMATION TECHNOLOGY 3B  
+IT 373 - EVENT DRIVEN PROGRAMMING  
+CULMINATING ACTIVITY
+  
+PROJECT BY: GROUP 5  
+  
+LEADER:  
+Ochengco, Michael Angelo A.  
+  
+MEMBERS:  
+Lee, Jade Hart C.  
+Ladrera, Bevirlie Jane R.  
+Enverso, Ralynn G.  
+  
+TUTORIAL BY:  
+RyiSnow

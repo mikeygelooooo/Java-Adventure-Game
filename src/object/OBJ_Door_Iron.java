@@ -30,7 +30,7 @@ public class OBJ_Door_Iron extends Entity {
     }
 
     public void setDialog() {
-        dialogs[0][0] = "It won't budge!";
+        dialogs[0][0] = "This door does not yield to force.\nOnly wit may turn its hinges.";
     }
 
     public void interact() {

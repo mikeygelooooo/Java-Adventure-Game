@@ -18,11 +18,11 @@ public class MON_Orc extends Entity {
         name = "Orc";
         defaultSpeed = 1;
         speed = defaultSpeed;
-        maxLife = 10;
+        maxLife = 15;
         life = maxLife;
-        attack = 8;
-        defense = 2;
-        exp = 10;
+        attack = 5;
+        defense = 5;
+        exp = 7;
         knockbackPower = 5;
 
         solidArea.x = 4;
@@ -92,15 +92,21 @@ public class MON_Orc extends Entity {
     public void checkDrop() {
         int i = new Random().nextInt(100) + 1;
 
+        Entity droppedItem;
+        int coinAmount = new Random().nextInt(3) + 3;
+
         // Randomize Monster Drop
-        if (i < 40) {
+        if (i <= 80) {
+            droppedItem = new OBJ_Coin_Bronze(gp);
+            droppedItem.value = coinAmount;
+
+            dropItem(droppedItem);
+        }
+        if (i > 80 && i <= 90) {
             dropItem(new OBJ_Sword_Normal(gp));
         }
-        if (i >= 40 && i <= 80) {
+        if (i > 90) {
             dropItem(new OBJ_Shield_Wood(gp));
-        }
-        if (i > 80 && i <= 100) {
-            dropItem(new OBJ_Shield_Blue(gp));
         }
     }
 }

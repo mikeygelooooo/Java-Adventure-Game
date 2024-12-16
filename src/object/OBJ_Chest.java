@@ -6,7 +6,7 @@ import entity.Entity;
 public class OBJ_Chest extends Entity{
     GamePanel gp;
 
-    public static final String ojbName = "Chest";
+    public static final String ojbName = "Treasure Chest";
 
     public OBJ_Chest(GamePanel gp) {
         super(gp);

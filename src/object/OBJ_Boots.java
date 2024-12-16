@@ -7,7 +7,7 @@ public class OBJ_Boots extends Entity {
     GamePanel gp;
 
     int value = 5;
-    public static final String ojbName = "Boots";
+    public static final String ojbName = "Speed Boots";
 
     public OBJ_Boots(GamePanel gp) {
         super(gp);
@@ -17,7 +17,7 @@ public class OBJ_Boots extends Entity {
         type = type_consumable;
         name = ojbName;
         description = "[" + name + "]\nAdds " + value + " speed.";
-        price = 25;
+        price = 15;
         stackable = true;
 
         value = 2;

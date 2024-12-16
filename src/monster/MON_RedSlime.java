@@ -23,9 +23,9 @@ public class MON_RedSlime extends Entity {
         speed = defaultSpeed;
         maxLife = 8;
         life = maxLife;
-        attack = 7;
-        defense = 0;
-        exp = 5;
+        attack = 3;
+        defense = 2;
+        exp = 4;
         projectile = new OBJ_Rock(gp);
 
         solidArea.x = 3;
@@ -77,14 +77,20 @@ public class MON_RedSlime extends Entity {
     public void checkDrop() {
         int i = new Random().nextInt(100) + 1;
 
+        Entity droppedItem;
+        int coinAmount = new Random().nextInt(2) + 2;
+
         // Randomize Monster Drop
-        if (i < 60) {
-            dropItem(new OBJ_Coin_Bronze(gp));
+        if (i <= 80) {
+            droppedItem = new OBJ_Coin_Bronze(gp);
+            droppedItem.value = coinAmount;
+
+            dropItem(droppedItem);
         }
-        if (i >= 60 && i <= 80) {
+        if (i > 80 && i <= 90) {
             dropItem(new OBJ_Heart(gp));
         }
-        if (i > 80 && i <= 100) {
+        if (i > 90) {
             dropItem(new OBJ_ManaCrystal(gp));
         }
     }

@@ -65,9 +65,7 @@ public class EventHandler {
         }
 
         if (canTouchEvent) {
-            if (hit(0, 27, 16, "right")) {
-                damagePit(gp.dialogState);
-            } else if (hit(0, 23, 12, "up")) {
+            if (hit(0, 23, 12, "up")) {
                 healingPool(gp.dialogState);
             } else if (hit(0, 10, 39, "any")) {
                 teleport(1, 12, 13, gp.indoor);
@@ -118,15 +116,6 @@ public class EventHandler {
 
 
         return hit;
-    }
-
-    public void damagePit(int gameState) {
-        gp.gameState = gameState;
-        gp.playSE(6);
-        eventMaster.startDialog(eventMaster, 0);
-        gp.player.life -= 1;
-
-        canTouchEvent = false;
     }
 
     public void healingPool(int gameState) {

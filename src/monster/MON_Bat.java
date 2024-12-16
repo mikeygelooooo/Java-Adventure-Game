@@ -20,9 +20,9 @@ public class MON_Bat extends Entity {
         name = "Bat";
         defaultSpeed = 4;
         speed = defaultSpeed;
-        maxLife = 2;
+        maxLife = 4;
         life = maxLife;
-        attack = 1;
+        attack = 2;
         defense = 0;
         exp = 2;
 
@@ -59,7 +59,7 @@ public class MON_Bat extends Entity {
         int i = new Random().nextInt(100) + 1;
 
         // Randomize Monster Drop
-        if (i < 10) {
+        if (i < 90) {
             dropItem(new OBJ_Coin_Bronze(gp));
         }
     }

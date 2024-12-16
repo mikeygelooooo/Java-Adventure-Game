@@ -12,7 +12,7 @@ public class OBJ_Shield_Blue extends Entity {
         type = type_shield;
         name = ojbName;
         description = "[" + name + "]\nA shiny blue shield.";
-        price = 250;
+        price = 20;
 
         defenseValue = 2;
 
