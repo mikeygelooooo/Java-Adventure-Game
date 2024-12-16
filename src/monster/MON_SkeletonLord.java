@@ -1,7 +1,9 @@
 package monster;
 
+import data.Progress;
 import entity.Entity;
 import main.GamePanel;
+import object.OBJ_Door_Iron;
 import object.OBJ_Shield_Blue;
 import object.OBJ_Shield_Wood;
 import object.OBJ_Sword_Normal;
@@ -29,6 +31,7 @@ public class MON_SkeletonLord extends Entity {
         defense = 2;
         exp = 50;
         knockbackPower = 5;
+        sleep = true;
 
         int size = gp.tileSize * 5;
         solidArea.x = 48;
@@ -44,6 +47,7 @@ public class MON_SkeletonLord extends Entity {
 
         getImage();
         getAttackImage();
+        setDialog();
     }
 
     public void getImage() {
@@ -97,6 +101,12 @@ public class MON_SkeletonLord extends Entity {
         }
     }
 
+    public void setDialog() {
+        dialogs[0][0] = "You dare set foot in my domain? Foolish mortal,\nyour journey ends here!";
+        dialogs[0][1] = "Intruders are not welcome... nor do they leave alive.";
+        dialogs[0][2] = "You’ve sealed your fate by crossing this threshold.\nPrepare for annihilation!";
+    }
+
     public void setAction() {
         if (!inRage && life < maxLife / 2) {
             inRage = true;
@@ -128,6 +138,22 @@ public class MON_SkeletonLord extends Entity {
     }
 
     public void checkDrop() {
+        gp.bossBattleOn = false;
+        Progress.skeletonLordDefeated = true;
+
+        // Restore Previous Music
+        gp.stopMusic();
+        gp.playMusic(19);
+
+        // Remove Doors
+        for (int i = 0; i < gp.obj[1].length; i++) {
+            if (gp.obj[gp.currentMap][i] != null && gp.obj[gp.currentMap][i].name.equals(OBJ_Door_Iron.ojbName)) {
+                gp.playSE(21);
+
+                gp.obj[gp.currentMap][i] = null;
+            }
+        }
+
         int i = new Random().nextInt(100) + 1;
 
         // Randomize Monster Drop

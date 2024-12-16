@@ -43,7 +43,10 @@ public class Player extends Entity {
         worldX = gp.tileSize * 23;
         worldY = gp.tileSize * 21;
 
-        gp.currentMap = 0;
+//        gp.currentMap = 3;
+//
+//        worldX = gp.tileSize * 26;
+//        worldY = gp.tileSize * 39;
 
         defaultSpeed = 4;
         speed = defaultSpeed;
@@ -108,7 +111,7 @@ public class Player extends Entity {
         inventory.add(currentShield);
         inventory.add(new OBJ_Axe(gp));
         inventory.add(new OBJ_Key(gp));
-        inventory.add(new OBJ_Key(gp));
+        inventory.add(new OBJ_Lantern(gp));
     }
 
     public int getAttack() {
@@ -758,7 +761,9 @@ public class Player extends Entity {
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
         }
 
-        g2.drawImage(image, tempScreenX, tempScreenY, null);
+        if (drawing) {
+            g2.drawImage(image, tempScreenX, tempScreenY, null);
+        }
 
         // Reset Opacity
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));

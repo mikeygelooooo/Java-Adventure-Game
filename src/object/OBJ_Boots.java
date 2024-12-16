@@ -34,7 +34,8 @@ public class OBJ_Boots extends Entity {
     public boolean use(Entity entity) {
         startDialog(this, 0);
 
-        entity.speed += value;
+        entity.defaultSpeed += value;
+        entity.speed = entity.defaultSpeed;
 
         gp.playSE(2);
 
