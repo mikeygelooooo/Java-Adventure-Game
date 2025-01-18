@@ -89,3 +89,10 @@ Pixel Odyssey is a charming, pixelated Action RPG where you explore a mysterious
 - **Dungeon Depths:** Solve puzzles, defeat tougher enemies, and find rare loot.  
 - **Dungeon Boss Room:** Prepare and defeat the boss.  
 - **Treasure Chamber:** Collect the treasure and unlock rewards.  
+
+---
+
+## PROJECT TUTORIAL
+
+- **Channel:** [RyiSnow](https://www.youtube.com/@RyiSnow)
+- **Playlist:** [How to Make a 2D Game in Java](https://www.youtube.com/playlist?list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq)
