@@ -33,10 +33,9 @@
 
 ### 1. Development Tools
 - Java  
-- Java Swing Library
 
-### 2. Game Mode
-- Single Player
+### 2. Graphical User Interface (GUI)
+- Java Swing
 
 ---
 
